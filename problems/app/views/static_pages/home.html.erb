@@ -1,0 +1,14 @@
+<div class="center hero-unit">
+      <h1>Problems</h1>
+
+      <h2>
+      	Problems speed dating solutions
+      </h2>
+      	
+      	<p>This is where you'll find the featured issue!</p>
+
+      <% unless user_signed_in? %>
+        <%= link_to "Join now!", new_user_registration_path,
+                  class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
