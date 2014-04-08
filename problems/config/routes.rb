@@ -1,4 +1,15 @@
 Problems::Application.routes.draw do
+  
+  devise_for :users
+  #for contact page
+  #resources "contacts", only: [:new, :create]
+  
+  root  'static_pages#home'
+
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'  
+  match '/contacts',     to: 'contacts#new',    via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
