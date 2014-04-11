@@ -21,10 +21,11 @@ Given /^the user submits valid signin information$/ do
   click_button "Sign in"
 end
 
-Then /^he should see the home page again$/ do
-  page.should have_selector('title', text: "Problems")
+
+Then /^he should see a logout link$/ do
+  page.should have_link('Logout', href: destroy_user_session_path)
 end
 
-Then /^he should see a signout link$/ do
-  page.should have_link('Sign out', href: signout_path)
+Then /^he should the home page$/ do
+  page.should have_selector('title', text: Problems)
 end
