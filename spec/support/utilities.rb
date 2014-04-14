@@ -25,18 +25,20 @@ def check_title_and_heading(heading, page_title)
 	it_should_behave_like "all static pages"
 end
 
-def visit_pages()
+def visit_and_check_static_pages()
 	visit root_path
     click_link "About"
     expect(page).to have_title(full_title('About Us'))
     click_link "Help"
     expect(page).to have_title(full_title('Help'))
-    click_link "Contact"
-    expect(page).to have_title(full_title('Contact'))
+
     click_link "Home"
-    click_link "Sign up now!"
+    click_link "Join now!"
     expect(page).to have_title(full_title('Sign up'))
-    click_link "sample app"
+
+##TODO: We may need to change this test if we decide to change the 
+#title of the program.
+    click_link "Problems"
     expect(page).to have_title(full_title(''))
 end
 
