@@ -12,10 +12,10 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
-  gem 'sqlite3'
   # The following optional lines are part of the advanced setup.
   # gem 'guard-rspec', '2.5.0'
   # gem 'spork-rails', '4.0.0'
@@ -29,7 +29,6 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  gem 'sqlite3'
 
   # Uncomment this line on OS X.
   # gem 'growl', '1.0.3'
