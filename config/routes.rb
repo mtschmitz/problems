@@ -1,5 +1,7 @@
 Problems::Application.routes.draw do
   
+  resources :problems
+
   devise_for :users
   #for contact page
   #resources "contacts", only: [:new, :create]
