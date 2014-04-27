@@ -1,10 +1,10 @@
 include ApplicationHelper
 
-def valid_info()
+def sign_up_with_valid_info()
   fill_in "Name",         with: "Example User"
   fill_in "Email",        with: "user@example.com"
-  fill_in "Password",     with: "foobar"
-  fill_in "Confirm Password", with: "foobar"
+  fill_in "user_password",              with: "foobar"
+  fill_in "user_password_confirmation", with: "foobar"
 end
 	
 RSpec::Matchers.define :have_error_message do |message|
@@ -36,7 +36,7 @@ def visit_and_check_static_pages()
     click_link "Join now!"
     expect(page).to have_title(full_title('Sign up'))
 
-##TODO: We may need to change this test if we decide to change the 
+##NOTICE: We may need to change this test if we decide to change the 
 #title of the program.
     click_link "Problems"
     expect(page).to have_title(full_title(''))
