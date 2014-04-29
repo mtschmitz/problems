@@ -3,8 +3,8 @@ include ApplicationHelper
 def sign_up_with_valid_info()
   fill_in "Name",         with: "Example User"
   fill_in "Email",        with: "user@example.com"
-  fill_in "user_password",              with: "foobar"
-  fill_in "user_password_confirmation", with: "foobar"
+  fill_in "user_password",              with: "foobar11"
+  fill_in "user_password_confirmation", with: "foobar11"
 end
 	
 RSpec::Matchers.define :have_error_message do |message|

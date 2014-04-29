@@ -1,8 +1,12 @@
+<% if !current_user.nil? %>
+<% provide(:title, current_user.name) %>
+<% end %>
+
 <div class="center hero-unit">
       <h1>Problems</h1>
 
       <h2>
-      	Problems speed dating solutions
+      	
       </h2>
       	
       	<p>This is where you'll find the featured issue!</p>
