@@ -9,7 +9,7 @@ end
 	
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
-    expect(page).to have_selector('div.alert.alert-error', text: message)
+    expect(page).to have_selector('div.alert.alert-alert', text: message)
   end
 end
 
@@ -21,12 +21,12 @@ end
 
 def check_title_and_heading(heading, page_title)
 	let(:heading)    { heading }
-    let(:page_title) { page_title }
+  let(:page_title) { page_title }
 	it_should_behave_like "all static pages"
 end
 
 def visit_and_check_static_pages()
-	visit root_path
+	  visit root_path
     click_link "About"
     expect(page).to have_title(full_title('About Us'))
     click_link "Help"
@@ -49,7 +49,7 @@ def sign_in(user, options={})
     cookies[:remember_token] = remember_token
     user.update_attribute(:remember_token, User.hash(remember_token))
   else
-    visit signin_path
+    visit new_user_session_path
     fill_in "Email",    with: user.email
     fill_in "Password", with: user.password
     click_button "Sign in"
