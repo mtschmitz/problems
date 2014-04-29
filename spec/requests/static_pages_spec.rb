@@ -19,12 +19,12 @@ describe "Static pages" do
 
   describe "Help page" do
     before { visit help_path }
-	check_title_and_heading('FAQ','Help')
+	  check_title_and_heading('FAQ','Help')
   end
 
   describe "About page" do
     before { visit about_path }
-	check_title_and_heading('PROBLORM','About Us')
+	  check_title_and_heading('PROBLORM','About Us')
   end
 
 #There is no contact page currently. If we wish to add one, we 
