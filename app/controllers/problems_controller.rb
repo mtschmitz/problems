@@ -1,10 +1,12 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: :destroy
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /problems
   # GET /problems.json
   def index
-    @problems = Problem.all
+    @problems = current_user.problems.all
   end
 
   # GET /problems/1
@@ -24,11 +26,11 @@ class ProblemsController < ApplicationController
   # POST /problems
   # POST /problems.json
   def create
-    @problem = Problem.new(problem_params)
+    @problem = current_user.problems.build(problem_params)
 
     respond_to do |format|
       if @problem.save
-        format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Problem was successfully created.' }
         format.json { render action: 'show', status: :created, location: @problem }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,5 +72,10 @@ class ProblemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
       params.require(:problem).permit(:user_id, :name, :description)
+    end
+    
+   def correct_user
+      @problem = current_user.problemss.find_by(id: params[:id])
+      redirect_to root_url if @problem.nil?
     end
 end
