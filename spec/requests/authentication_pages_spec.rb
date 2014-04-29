@@ -19,11 +19,11 @@ describe "Authentication" do
       before { click_button "Sign in" }
       
       it { should have_title('Sign in') }
-      it { should have_error_message('Invalid email or password.') }
+      it { should have_alert_message('Invalid') }
 
       describe "after visiting another page" do
         before { click_link "Home" }
-        it { should_not have_error_message('Invalid email or password.') }
+        it { should_not have_alert_message('Invalid') }
       end
     end
 
@@ -41,6 +41,16 @@ describe "Authentication" do
         it { should have_link('Login') }
       end
     end
+  end
+
+  describe "posting questions" do
+    describe "while not logged in" do
+      before { visit new_problem_path }
+      it { should have_title('Sign in') }
+      it { should have_alert_message('Invalid email or password.') }
+    end    
+
+
   end
 
 end
