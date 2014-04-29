@@ -42,15 +42,4 @@ describe "Authentication" do
       end
     end
   end
-
-  describe "posting questions" do
-    describe "while not logged in" do
-      before { visit new_problem_path }
-      it { should have_title('Sign in') }
-      it { should have_alert_message('Invalid email or password.') }
-    end    
-
-
-  end
-
 end
