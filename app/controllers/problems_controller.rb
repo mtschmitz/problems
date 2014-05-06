@@ -75,7 +75,7 @@ class ProblemsController < ApplicationController
     end
     
    def correct_user
-      @problem = current_user.problemss.find_by(id: params[:id])
+      @problem = current_user.problems.find_by(id: params[:id])
       redirect_to root_url if @problem.nil?
     end
 end

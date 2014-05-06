@@ -2,17 +2,20 @@
 <% provide(:title, current_user.name) %>
 <% end %>
 
-<div class="center hero-unit">
+<div class="jumbotron">
       <h1>Problems</h1>
 
       <h2>
-      	
+      	Is the world perfect yet?
       </h2>
       	
       	<p>This is where you'll find the featured issue!</p>
 
       <% unless user_signed_in? %>
+      <div class="center">
         <%= link_to "Join now!", new_user_registration_path,
                   class: "btn btn-large btn-primary" %>
+      </div>
       <% end %>
+      
     </div>
