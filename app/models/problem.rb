@@ -6,4 +6,10 @@ class Problem < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 2000 }
   default_scope -> { order('created_at DESC') }
 
+
+  def self.unsolved_feed
+    #unsolved_ids = "SELECT name FROM problems WHERE user_id > 0" 
+    #where("(#{unsolved_ids})")
+    Problem.all
+  end
 end

@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
-
+  
   private
 
     def create_remember_token
