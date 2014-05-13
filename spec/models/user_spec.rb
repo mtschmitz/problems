@@ -11,6 +11,8 @@ describe User do
     @user.password = "foobar11"
     @user.password_confirmation = "foobar11"
     @user.save!
+    @user_with_same_email = nil
+
   end
 
   subject { @user }
@@ -66,12 +68,13 @@ describe User do
   
   describe "when email address is already taken" do
     before do
-      user_with_same_email = @user.dup
-      user_with_same_email.email = @user.email.upcase
-      user_with_same_email.save
+      @user_with_same_email = @user.dup
+      @user_with_same_email.email = @user.email.upcase
+      @user_with_same_email.save
     end
-
-    it { should_not be_valid }
+    it "should be invalid" do
+      expect(@user_with_same_email.valid?).to be false
+    end
   end
   
     describe "when password is not present" do
