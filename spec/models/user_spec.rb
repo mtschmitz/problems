@@ -4,18 +4,22 @@ describe User do
 
   before do
     @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobarrr", password_confirmation: "foobarrr", id: "1")
+                     password: "foobar11", password_confirmation: "foobar11", id: "1")
+    @user.id ="1"
+    @user.name = "Example User"
+    @user.email = "user@example.com"
+    @user.password = "foobar11"
+    @user.password_confirmation = "foobar11"
+    @user.save!
   end
 
   subject { @user }
-
+  
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:encrypted_password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
-
-
   it { should be_valid }
 
 

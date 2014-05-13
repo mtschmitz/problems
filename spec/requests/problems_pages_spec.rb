@@ -9,7 +9,7 @@ describe "Problems" do
   describe "posting new problems" do
     describe "while not logged in" do
       before { visit new_problem_path }
-      it { should have_title('Sign in') }
+      it { should have_title('Sign In') }
       it { should have_alert_message('You need to sign in or sign up before continuing.') }
     end    
 
