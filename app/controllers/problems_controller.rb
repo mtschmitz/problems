@@ -1,5 +1,3 @@
-require 'will_paginate/array'
-
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,   only: :destroy
@@ -8,7 +6,6 @@ class ProblemsController < ApplicationController
   # GET /problems
   # GET /problems.json
   def index
-    @feed_items = current_user.asked_problems_feed.paginate(page: params[:page])
     @problems = current_user.problems.all
   end
 

@@ -13,14 +13,15 @@ describe "Static pages" do
     check_title_and_heading('Problems', '')
 
     it { should_not have_title('| Home') }
-    it "should have Join now button" do
-      expect(page).to have_selector("div","Join now!")
-    end
 
     describe "for signed in users" do
       let(:user) { FactoryGirl.create(:user) }
-      before { sign_in user }
-      it { should have_alert_notice('Signed in') } 
+      before do
+        sign_in user
+        visit root_path
+      end
+
+
     end
 
   end
