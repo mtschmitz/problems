@@ -2,7 +2,7 @@
 
 	<div class="row">
       <div class="col-md-12">
-      	<span class="user"><strong> <%= feed_item.name %></strong> </span>
+      	<span class="user"><strong> <%= link_to feed_item.name, feed_item %></strong> </span>
 		<span class="content"><small><%= feed_item.description %></small></span>
       	<span class="timestamp">Added <%= time_ago_in_words(feed_item.created_at) %> ago by:      
       <% user = User.find(feed_item.user_id) %>
@@ -10,8 +10,10 @@
       <%= user.name %>
       </span>
       <span class="navbar-right">
-      	<span class="glyphicon glyphicon-arrow-up"></span> 
-      	<span class="glyphicon glyphicon-arrow-down"></span>
+      	<% if user_signed_in? %>
+		<%= render 'shared/voting_buttons'%>
+		<% end %>
+
       </span>
   <% if current_user == feed_item.user %>
     <%= render 'shared/delete_problem', feed_item: feed_item %>

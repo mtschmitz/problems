@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_many :problems
-  make_voter
+#  make_voter
 
 
   def User.hash(token)
