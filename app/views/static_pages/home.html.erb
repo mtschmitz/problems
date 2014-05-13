@@ -1,14 +1,22 @@
 <% if !current_user.nil? %>
 <% provide(:title, current_user.name) %>
 <% end %>
-<% if signed_in? %>
   <!-- Display list of unanswered questions or questions that have unsatisfactory
        answers -->
+
   <h2 class="text-center"> Problems that need answers! </h2>
   <% if @feed_items.any? %>
-  <div class="text-center"> <%= link_to 'Something missing from the list?', new_problem_path, class:"btn btn-success btn-large" %> </div> <br />
+  <div class="text-center"> <%= link_to 'Something missing from the list?', new_problem_path, class:"btn btn-danger btn-large" %> </div> <br />
 
   <div class="jumbotron">
+
+  <% unless user_signed_in? %>
+  <div class="text-center">
+    <%= link_to "Join now!", new_user_registration_path,
+              class: "btn btn-large btn-success" %>
+  </div>
+     <% end %>
+
 
     <ul class="problems">
       <%= render partial: 'shared/feed_item', collection:@feed_items %>
@@ -19,23 +27,4 @@
   <% else %>
     <h3> The world is ok, there are no problems!</h3>
   <% end %>
-  
-<% else %>
-<div class="jumbotron">
-  <h1>Problems</h1>
 
-  <h2>
-  	Is the world perfect yet?
-  </h2>
-  	
-  	<p>This is where you'll find the featured issue!</p>
-
-  <% unless user_signed_in? %>
-  <div class="center">
-    <%= link_to "Join now!", new_user_registration_path,
-              class: "btn btn-large btn-primary" %>
-  </div>
-  <% end %>
-  
-</div>
-<% end %>

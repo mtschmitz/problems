@@ -3,8 +3,10 @@ class Problem < ActiveRecord::Base
 #  has_many :solutions  
   validates :name, presence: true
   validates :user_id, presence: true
-  validates :short_description, presence: true, length: { maximum: 140}
   validates :description, presence: true, length: { maximum: 2000 }
+  make_voteable
+  
+    
   default_scope -> { order('created_at DESC') }
 
 

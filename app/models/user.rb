@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_many :problems
+  make_voter
+
 
   def User.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
@@ -23,6 +25,19 @@ class User < ActiveRecord::Base
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
+  
+  
+  # def opinionated?(problem)
+    # opinions.find_by(problem_id: problem.id)
+  # end
+# 
+# 
+  # def opinionate!(problem, updown)
+    # opinions.create!(problem_id: problem.id, updown: updown)
+  # end
+# 
+
+  
   
   private
 
