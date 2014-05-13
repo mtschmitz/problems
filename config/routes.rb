@@ -1,6 +1,10 @@
 Problems::Application.routes.draw do
   
-  resources :problems
+  resources :solutions
+
+  resources :problems do
+    resources :solutions
+  end
 
   devise_for :users
   #for contact page

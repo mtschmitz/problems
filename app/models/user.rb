@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_many :problems
+  has_many :solutions
 #  make_voter
 
 

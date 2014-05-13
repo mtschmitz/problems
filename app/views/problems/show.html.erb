@@ -19,9 +19,22 @@
 </div>
 </div>
 
+<div class="text-center"> <%= link_to 'Solutions?', new_problem_solution_path(@problem), class:"btn btn-success btn-large" %> </div> <br />
+
+<div class="well">
+<ul class="problems">
+    <% puts @problem.solutions.any? %>
+	<% if @problem.solutions.any? %>
+  	<%= render partial: 'shared/feed_solution', collection:@problem.solutions %>
+  	<% end %>
+</ul>
+    <% #will_paginate @problem.solutions%>
+</div>
+
+
 <% if current_user == @problem.user %>
 <%= link_to 'Edit', edit_problem_path(@problem), class: "btn btn-sm btn-primary" %> |
-<%= link_to 'Back', problems_path %> | <%= render 'shared/delete_problem', feed_item: @problem %>
+<%= link_to 'Back', root_path %> | <%= render 'shared/delete_problem', feed_item: @problem %>
 <% else %>
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Back', root_path %>
 <% end %>

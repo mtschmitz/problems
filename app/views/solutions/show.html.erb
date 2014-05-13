@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="well">
+<div class="text-center">	
+<p>
+   <h1><strong><%= @solution.name %></strong></h1>
+</p>
+</div>
+
+	<h2 class="text-center"><u>Plan</u></h2>
+<p class="text-center lead">
+
+  <%= @solution.plan %>
+</p>
+<div class="text-right">
+  <strong>Added By:</strong>
+  <%= @solution.user.name %>
+</div>
+</div>
+
+<br />
+
+<div class="well">
+<p class="text-center">
+	<% if @solution.attempted %>
+	<h2 class="text-center"><u><%= "Results from attempting this solution:" %></u></h2>
+	
+	<p class="text-center"><%= @solution.result %></p>
+	<% else %>
+	<%= "No one has attempted this solution yet" %>
+	<% end %>
+</p>	
+
+
+</div>
+
+
+
+
+<%= link_to 'Edit', edit_solution_path(@solution) %> |
+<%= link_to 'Back', @solution.problem %>

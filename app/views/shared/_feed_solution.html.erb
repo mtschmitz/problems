@@ -1,0 +1,27 @@
+<li id="<%= feed_solution.id %>">
+
+	<div class="row">
+      <div class="col-md-12">
+      	<span class="user"><strong> <%= link_to feed_solution.name, feed_solution %></strong> </span>
+		<span class="content"><small><%= feed_solution.plan %></small></span>
+      	<span class="timestamp">Added <%= time_ago_in_words(feed_solution.created_at) %> ago by:      
+      <% user = User.find(feed_solution.user_id) %>
+      <%= gravatar_for(user, size: 20 ) %>
+      <%= user.name %>
+      </span>
+      <span class="navbar-right">
+      	<% if user_signed_in? %>
+      	<%= link_to 'Edit', edit_solution_path(feed_solution), class: "btn btn-sm btn-primary" %> |
+		<%= render 'shared/voting_buttons'%>
+		<% end %>
+
+      </span>
+  <% if current_user == feed_solution.user %>
+    <%= render 'shared/delete_problem', feed_item: feed_solution %>
+  <% end %>
+		  </div>
+	</div>
+</li>
+
+
+
