@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423041756) do
+ActiveRecord::Schema.define(version: 20140513035158) do
 
   create_table "problems", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140423041756) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "up_votes",    default: 0, null: false
+    t.integer  "down_votes",  default: 0, null: false
   end
 
   add_index "problems", ["name"], name: "index_problems_on_name", unique: true
@@ -38,10 +40,26 @@ ActiveRecord::Schema.define(version: 20140423041756) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "remember_token"
+    t.integer  "up_votes",               default: 0,  null: false
+    t.integer  "down_votes",             default: 0,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votings", force: true do |t|
+    t.string   "voteable_type"
+    t.integer  "voteable_id"
+    t.string   "voter_type"
+    t.integer  "voter_id"
+    t.boolean  "up_vote",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votings", ["voteable_type", "voteable_id", "voter_type", "voter_id"], name: "unique_voters", unique: true
+  add_index "votings", ["voteable_type", "voteable_id"], name: "index_votings_on_voteable_type_and_voteable_id"
+  add_index "votings", ["voter_type", "voter_id"], name: "index_votings_on_voter_type_and_voter_id"
 
 end

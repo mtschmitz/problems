@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<div class="well">
+<div class="text-center">	
 <p>
-  <strong>User:</strong>
-  <%= @problem.user_id %>
+  <h1>The problem is...</h1>
+   <h1><strong><%= @problem.name %></strong></h1>
 </p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @problem.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+<p class="text-center lead">
   <%= @problem.description %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
+
+<div>
+  <strong>Added By:</strong>
+  <%= @problem.user.name %>
+</div>
+</div>
+
+<% if current_user == @problem.user %>
+<%= link_to 'Edit', edit_problem_path(@problem), class: "btn btn-sm btn-primary" %> |
+<%= link_to 'Back', problems_path %> | <%= render 'shared/delete_problem', feed_item: @problem %>
+<% else %>
 <%= link_to 'Back', problems_path %>
+<% end %>
