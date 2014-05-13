@@ -39,8 +39,8 @@ def visit_and_check_static_pages()
     expect(page).to have_title(full_title('Help'))
 
     click_link "Home"
-    expect(page).to have_title(full_title('Sign Up!'))
-
+    expect(page).to have_title(full_title(''))
+    
 ##NOTICE: We may need to change this test if we decide to change the 
 #title of the program.
     click_link "Problems"
