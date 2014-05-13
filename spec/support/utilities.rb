@@ -19,6 +19,12 @@ RSpec::Matchers.define :have_alert_message do |message|
   end
 end
 
+RSpec::Matchers.define :have_alert_notice do |message|
+  match do |page|
+    expect(page).to have_selector('div.alert.alert-notice', text: message)
+  end
+end
+
 RSpec::Matchers.define :have_success_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert.alert-success', text: message)
