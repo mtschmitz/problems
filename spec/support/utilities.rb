@@ -39,8 +39,7 @@ def visit_and_check_static_pages()
     expect(page).to have_title(full_title('Help'))
 
     click_link "Home"
-    click_link "Join now!"
-    expect(page).to have_title(full_title('Sign up'))
+    expect(page).to have_title(full_title('Sign Up!'))
 
 ##NOTICE: We may need to change this test if we decide to change the 
 #title of the program.
@@ -58,6 +57,6 @@ def sign_in(user, options={})
     visit new_user_session_path
     fill_in "Email",    with: user.email
     fill_in "Password", with: user.password
-    click_button "Sign in"
+    click_button "Submit"
   end
 end

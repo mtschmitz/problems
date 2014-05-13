@@ -11,7 +11,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'therubyracer'
 gem 'twitter-bootswatch-rails-helpers'
 
-
+gem 'protected_attributes'
+gem 'make_voteable'
 gem 'devise'
 gem 'mail_form'
 gem 'simple_form'

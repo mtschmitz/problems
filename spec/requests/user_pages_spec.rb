@@ -8,14 +8,14 @@ describe "User pages" do
     before { visit new_user_registration_path }
 
     it { should have_content('Sign up') }
-    it { should have_title(full_title('Sign up')) }
+    it { should have_title(full_title('Sign Up')) }
   end
 
   describe "signup" do
 
     before { visit new_user_registration_path }
 
-    let(:submit) { "Sign up" }
+    let(:submit) { "Sign Up" }
 
     describe "with invalid information" do
       it "should not create a user" do
