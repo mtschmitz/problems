@@ -14,7 +14,17 @@ describe "Static pages" do
     check_title_and_heading('Problems', '')
 
     it { should_not have_title('| Home') }
-    
+
+    describe "for signed in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+        visit root_path
+      end
+
+
+    end
+
   end
 
   describe "Help page" do
