@@ -14,10 +14,11 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'sqlite3'
+  
   # The following optional lines are part of the advanced setup.
   # gem 'guard-rspec', '2.5.0'
   # gem 'spork-rails', '4.0.0'
