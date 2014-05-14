@@ -10,7 +10,7 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    check_title_and_heading('Problems', '')
+    check_title_and_heading('Moblems', '')
 
     it { should_not have_title('| Home') }
     it "should have Join now button" do

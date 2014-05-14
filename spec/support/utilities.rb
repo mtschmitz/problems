@@ -49,7 +49,7 @@ def visit_and_check_static_pages()
     
 ##NOTICE: We may need to change this test if we decide to change the 
 #title of the program.
-    click_link "Problems"
+    click_link "Moblems"
     expect(page).to have_title(full_title(''))
 end
 
