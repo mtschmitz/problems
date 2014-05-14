@@ -1,11 +1,19 @@
 require 'spec_helper'
 
 describe "Solutions" do
-  describe "GET /solutions" do
+  subject { page }
+  let(:user) { FactoryGirl.build(:user) }
+  let(:problem) { FactoryGirl.build(:problem) } 
 
-#placeholder test
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+  describe "in problem display" do
+    before do
+      problem.id = 1
+      problem.save!
+      visit problem_path(problem) 
+    end
+    
+    it "should have solution button" do
+      expect(page).to have_selector("div", "Solutions?")
     end
   end
 end

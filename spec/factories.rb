@@ -6,5 +6,10 @@ FactoryGirl.define do
     password_confirmation "foobar11"
 
   end
-  
+
+  factory :problem do
+    name "This is a test problem."
+    description "This is a description"
+    user
+  end
 end
