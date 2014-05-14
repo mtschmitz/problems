@@ -1,4 +1,7 @@
 <h1>New solution</h1>
+<div class="well">
+  <%= render partial: 'shared/show_problem',locals: { :problem => Problem.find(params[:problem_id]) } %>
+</div>
 
 <%= render 'form' %>
 
