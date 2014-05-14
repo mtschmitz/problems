@@ -1,22 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="well">
-<div class="text-center">	
-<p>
-  <h1>The problem is...</h1>
-   <h1><strong><%= @problem.name %></strong></h1>
-</p>
-</div>
-
-<p class="text-center lead">
-  <%= @problem.description %>
-</p>
-
-
-<div>
-  <strong>Added By:</strong>
-  <%= @problem.user.name %>
-</div>
+  <%= render partial: 'shared/show_problem',locals: { :problem => @problem } %>
 </div>
 
 <div class="text-center"> <%= link_to 'Solutions?', new_problem_solution_path(@problem), class:"btn btn-success btn-large" %> </div> <br />
