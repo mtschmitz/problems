@@ -27,5 +27,5 @@ Then /^he should see a logout link$/ do
 end
 
 Then /^he should the home page$/ do
-  page.should have_selector('title', text: Problems)
+  page.should have_selector('title', text: Moblems)
 end

@@ -39,7 +39,7 @@ describe "Problems" do
           click_button submit
         end
         
-        it { should have_title('Problems') }
+        it { should have_title('Moblems') }
       end      
 
     end

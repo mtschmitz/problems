@@ -6,5 +6,11 @@ FactoryGirl.define do
     password_confirmation "foobar11"
 
   end
+  factory :problem do
+    sequence(:name)  { |n| "problem #{n}"}
+    sequence(:description)  { |n| "YEAH HAHAHAHA"}
+    user
+    
+  end
   
 end
